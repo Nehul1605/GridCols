@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Variables for Design Tokens */
+:root {
+  --grid-border-color: #e5e7eb;
+  --grid-row-even: #ffffff;
+  --grid-row-odd: #f9fafb;
+  --grid-row-hover: #eff6ff;
+  --grid-row-selected: #dbeafe;
+  --grid-header-bg: #f3f4f6;
+  --grid-cell-focus: #3b82f6;
+  --grid-row-height: 35px;
+  --grid-header-height: 40px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  :root {
+    --grid-border-color: #000000;
+    --grid-row-even: #ffffff;
+    --grid-row-odd: #f0f0f0;
+    --grid-row-hover: #ffff00;
+    --grid-row-selected: #0000ff;
+    --grid-header-bg: #d0d0d0;
+    --grid-cell-focus: #000000;
+  }
+}
+
+/* Focus visible styles for keyboard navigation */
+.grid-cell-focusable:focus-visible {
+  outline: 2px solid var(--grid-cell-focus);
+  outline-offset: -2px;
+}
+
+/* Scrollbar styling for the grid */
+.grid-scroll-container::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.grid-scroll-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.grid-scroll-container::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+.grid-scroll-container::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* Prevent text selection during drag operations */
+.grid-selecting {
+  user-select: none;
+}
+
+/* Performance: Use GPU acceleration for scroll container */
+.grid-viewport {
+  will-change: transform;
+  contain: strict;
+}
+
+/* Performance: Isolate row rendering */
+.grid-row {
+  contain: layout style paint;
+}
