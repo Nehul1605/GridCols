@@ -1,89 +1,83 @@
-# Virtualized DataGrid
+# DataGrid Assignment
 
-A high-performance, accessible data grid built from scratch in React 18 with TypeScript.
+A feature-rich, high-performance Data Grid component built with React, TypeScript, and Vite. This project demonstrates complex grid functionalities including virtualization, sorting, filtering, column manipulation, and inline editing.
 
 ## Features
 
-- ✅ **Manual Virtualization** - No react-window or tanstack/virtual
-- ✅ **50,000+ Rows at 60fps** - O(1) visible range calculation
-- ✅ **Full Keyboard Navigation** - Roving tabindex pattern
-- ✅ **ARIA Accessibility** - Screen reader support
-- ✅ **Sorting** - Click headers to sort
-- ✅ **Inline Editing** - Double-click cells to edit
-- ✅ **Row Selection** - Single and multi-select
-- ✅ **Column Resizing** - Drag column borders
-- ✅ **TypeScript Strict Mode** - Full type safety
-- ✅ **Tailwind CSS** - Design token based styling
+- **High Performance**: Optimized for handling large datasets.
+- **Sorting**: Support for ascending and descending sort on columns.
+- **Column Resizing**: Draggable column headers to adjust width.
+- **Column Pinning**: Pin columns to the left or right for easy viewing of wide tables.
+- **Inline Editing**: Edit cell values directly within the grid with validation support.
+- **Column Visibility**: Toggle column visibility.
+- **History Management**: Track changes like edits and column resizing.
+- **Customizable Renderers**: Support for custom cell renderers and editors.
 
 ## Tech Stack
 
-- React 18
-- TypeScript (strict mode)
-- Vite
-- Tailwind CSS
-- Storybook
-- Vitest + Testing Library
+- **Framework**: React 18
+- **Language**: TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **Component Development**: Storybook
+- **Testing**: Vitest, Playwright
 
 ## Getting Started
 
+### Prerequisites
+
+- Node.js (Latest LTS recommended)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Nehul1605/GridCols.git
+   ```
+2. Navigate to the project directory:
+   ```bash
+   cd GridCols
+   ```
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+### Running the Application
+
+To start the development server:
+
 ```bash
-# Install dependencies
-npm install
-
-# Start development server
 npm run dev
+```
 
-# Start Storybook
+The application will be available at `http://localhost:5173` (or the port shown in the terminal).
+
+### Storybook
+
+This project uses Storybook for component development and documentation.
+
+To start Storybook:
+
+```bash
 npm run storybook
+```
 
-# Run tests
-npm run test
+Storybook will launch at `http://localhost:6006`.
 
-# Build for production
+### Building for Production
+
+To build the application for production:
+
+```bash
 npm run build
 ```
 
+This will compile the TypeScript code and bundle the application using Vite.
+
 ## Project Structure
 
-```
-src/
-├── components/
-│   └── DataGrid/           # Core grid component
-│       ├── DataGrid.tsx    # Main composition root
-│       ├── Header/         # Header components
-│       ├── Body/           # Row and cell components
-│       ├── Editors/        # Inline edit components
-│       └── Internal/       # Internal utilities
-├── hooks/
-│   ├── useVirtualizer.ts   # Virtualization engine
-│   ├── useGridState.ts     # State management
-│   ├── useKeyboardNav.ts   # Keyboard navigation
-│   └── useSelection.ts     # Selection handling
-├── types/                  # TypeScript definitions
-├── utils/                  # Utility functions
-├── constants/              # Design tokens
-└── styles/                 # CSS/Tailwind
-```
-
-## Performance
-
-The grid achieves 60fps scrolling through:
-
-1. **O(1) Virtualization Math** - Only renders visible rows (~20-30)
-2. **React.memo with Custom Comparison** - Prevents unnecessary re-renders
-3. **RAF-based Scroll Updates** - Synchronized with browser paint
-4. **CSS Containment** - Isolates layout calculations
-5. **Stable Callbacks** - useCallback for event handlers
-
-## Accessibility
-
-- `role="grid"` with `aria-rowcount` and `aria-colcount`
-- `role="row"` with `aria-rowindex`
-- `role="gridcell"` with proper labeling
-- `aria-sort` on sortable columns
-- Keyboard navigation (Arrow, Tab, Enter, Escape)
-- Screen reader announcements for state changes
-
-## License
-
-MIT
+- `src/components/DataGrid`: Contains the core DataGrid component and related files.
+- `src/stories`: Storybook stories for UI components.
+- `src/App.tsx`: Main application entry point demonstrating the grid usage.
